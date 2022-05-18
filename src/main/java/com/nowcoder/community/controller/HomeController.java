@@ -19,7 +19,7 @@ import java.util.Map;
 
 @Controller
 public class HomeController {
-
+    // Git Test
     @Autowired
     private DiscussPostService discussPostService;
 
