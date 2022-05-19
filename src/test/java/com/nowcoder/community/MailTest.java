@@ -25,7 +25,6 @@ public class MailTest {
     public void testHtmlMail() {
         Context context = new Context();
         context.setVariable("username", "Hello world!");
-
         String content = templateEngine.process("/mail/demo", context);
         System.out.println(content);
 
