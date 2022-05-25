@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class LoginTicket {
 
-    private long id;
-    private int user_id;
+    private int id;
+    private int userId;
     private String ticket;
     private int status;
     private Date expired;
@@ -14,27 +14,27 @@ public class LoginTicket {
     public String toString() {
         return "LoginTicket{" +
                 "id=" + id +
-                ", user_id=" + user_id +
+                ", user_id=" + userId +
                 ", ticket='" + ticket + '\'' +
                 ", status=" + status +
                 ", expired=" + expired +
                 '}';
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     public int getUser_id() {
-        return user_id;
+        return userId;
     }
 
     public void setUser_id(int user_id) {
-        this.user_id = user_id;
+        this.userId = user_id;
     }
 
     public String getTicket() {

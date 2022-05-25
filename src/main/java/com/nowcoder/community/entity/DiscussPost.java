@@ -39,7 +39,7 @@ public class DiscussPost {
         this.id = id;
     }
 
-    public long getUserId() {
+    public int getUserId() {
         return userId;
     }
 

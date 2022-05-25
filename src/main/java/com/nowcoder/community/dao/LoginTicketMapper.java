@@ -14,8 +14,7 @@ public interface LoginTicketMapper {
     int InsertLoginTicket(LoginTicket loginTicket);
 
     @Select({
-            "select id,user_id,ticket,status,expired from login_ticket " +
-                    "where ticket = #{ticket}"
+            "select * from login_ticket where ticket = #{ticket}"
     })
     LoginTicket selectByTicket(String ticket);
 

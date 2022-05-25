@@ -3,7 +3,7 @@ package com.nowcoder.community.entity;
 import java.util.Date;
 
 public class User {
-    private Long id;
+    private Integer id;
     private String username;
     private String password;
     private String salt;
@@ -30,11 +30,11 @@ public class User {
                 '}';
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

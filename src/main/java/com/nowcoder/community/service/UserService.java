@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class UserService implements CommunityConstant {
     @Autowired
     private LoginTicketMapper loginTicketMapper;
 
-    public User findUserById (Long id) {
+    public User findUserById (int id) {
         return userMapper.selectById(id);
     }
 
@@ -100,7 +101,7 @@ public class UserService implements CommunityConstant {
         return map;
     }
 
-    public int activation(long userId, String code) {
+    public int activation(int userId, String code) {
         User user = userMapper.selectById(userId);
         if (user.getStatus() == 1) {
             return ACTIVATION_REPEAT;
@@ -148,7 +149,7 @@ public class UserService implements CommunityConstant {
 
         // 生成登录凭证
         LoginTicket loginTicket = new LoginTicket();
-        loginTicket.setUser_id((int) user.getId());
+        loginTicket.setUser_id(user.getId());
         loginTicket.setTicket(CommunityUtil.generateUUID());
         loginTicket.setStatus(0);
         loginTicket.setExpired(new Date(System.currentTimeMillis() + (expiredSeconds * 1000)));
@@ -160,5 +161,10 @@ public class UserService implements CommunityConstant {
 
     public void logOut(String ticket) {
         loginTicketMapper.updateStatus(ticket, 1);
+    }
+
+    // 查询凭证 错误点，mybatis与mysql查询出来的结果不一致！！原因是驼峰命名开启导致的user_id查询错误
+    public LoginTicket findLoginTicket(String ticket) {
+        return loginTicketMapper.selectByTicket(ticket);
     }
 }
