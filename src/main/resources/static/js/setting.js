@@ -13,7 +13,7 @@ function upload() {
             if (data && data.code === 0) {
                 $.post(
                     CONTEXT_PATH + "/user/header/url",
-                    {"filename": $("input[name='key']").val()},
+                    {"fileName": $("input[name='key']").val()},
                     function (data) {
                         data = $.parseJSON(data);
                         if (data.code === 0) {

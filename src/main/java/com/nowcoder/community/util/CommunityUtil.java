@@ -1,8 +1,9 @@
 package com.nowcoder.community.util;
 
-import org.apache.commons.codec.digest.DigestUtils;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Map;
 import java.util.UUID;
 
 public class CommunityUtil {
@@ -22,5 +23,24 @@ public class CommunityUtil {
         return org.springframework.util.DigestUtils.md5DigestAsHex(key.getBytes());
     }
 
+    // 封装json数据
+    public static String getJsonString(int code, String msg, Map<String, Object> map) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        json.put("msg", msg);
+        if (map != null) {
+            for (String key : map.keySet()) {
+                json.put(key, map.get(key));
+            }
+        }
+        return json.toJSONString();
+    }
 
+    public static String getJsonString(int code, String msg) {
+        return getJsonString(code, msg, null);
+    }
+
+    public static String getJsonString(int code) {
+        return getJsonString(code, null, null);
+    }
 }
