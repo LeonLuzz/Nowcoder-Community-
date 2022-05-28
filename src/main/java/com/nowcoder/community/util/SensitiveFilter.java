@@ -105,6 +105,7 @@ public class SensitiveFilter {
         return !CharUtils.isAsciiAlphanumeric(ctr) && (ctr < 0x2E80 || ctr > 0x9FFF);
     }
 
+    // 前缀树数据结构
     private class TrieNode {
 
         // 敏感词结束标识

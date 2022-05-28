@@ -27,7 +27,7 @@ function publish() {
 				if (data.code === 0) {
 					window.location.reload();
 				}
-			}, 2000);
+			}, 1000);
 		}
 	);
 }
