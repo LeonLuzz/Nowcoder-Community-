@@ -53,7 +53,8 @@
 						发布于 <b th:text="${#dates.format(post.createTime, 'yyyy-MM-dd HH:mm:ss')}">2019-04-15 15:32:18</b>
 						<ul class="d-inline float-right">
 							<li class="d-inline ml-2"><a href="javascript:void(0);" class="text-primary" th:onclick="|like(this, 1, ${post.id}, ${post.userId}, ${post.id})|">
-								<b th:text="${likeStatus == 1 ? '已赞' : '赞'}">赞</b> <i th:text="${likeCount}">11</i>
+								<!--<b th:text="${likeStatus == 1 ? '已赞' : '赞'}">赞</b> <i th:text="${likeCount}">11</i>-->
+								<b>赞</b><i>1</i>
 							</a></li>
 							<li class="d-inline ml-2">|</li>
 							<li class="d-inline ml-2"><a href="#replyform" class="text-primary">回帖 <i th:text="${post.commentCount}">7</i></a></li>
@@ -104,7 +105,8 @@
 							<ul class="d-inline float-right">
 								<li class="d-inline ml-2">
 									<a href="javascript:void(0);" class="text-primary" th:onclick="|like(this, 2, ${cvo.comment.id}, ${cvo.comment.userId}, ${post.id})|">
-										<b th:text="${cvo.likeStatus == 1 ? '已赞' : '赞'}">赞</b>(<i th:text="${cvo.likeCount}">1</i>)
+										<b>赞</b><i>1</i>
+										<!--<b th:text="${cvo.likeStatus == 1 ? '已赞' : '赞'}">赞</b>(<i th:text="${cvo.likeCount}">1</i>)-->
 									</a>
 								</li>
 								<li class="d-inline ml-2">|</li>
@@ -114,7 +116,7 @@
 						<!-- 回复列表 -->
 						<ul class="list-unstyled mt-4 bg-gray p-3 font-size-12 text-muted">
 							<!-- 第1条回复 -->
-							<li class="pb-3 pt-3 mb-3 border-bottom" th:each="rvo:${cvo.replys}">
+							<li class="pb-3 pt-3 mb-3 border-bottom" th:each="rvo:${cvo.replies}">
 								<div>
 									<span th:if="${rvo.target == null}"><b class="text-info" th:text="${rvo.user.username}">寒江雪</b>:&nbsp;&nbsp;</span>
 									<span th:if="${rvo.target != null}">
@@ -128,7 +130,8 @@
 									<ul class="d-inline float-right">
 										<li class="d-inline ml-2">
 											<a href="javascript:void(0);" class="text-primary" th:onclick="|like(this, 2, ${rvo.reply.id}, ${rvo.reply.userId}, ${post.id})|">
-												<b th:text="${rvo.likeStatus == 1 ? '已赞' : '赞'}">赞</b>(<i th:text="${rvo.likeCount}">1</i>)
+												<!--<b th:text="${rvo.likeStatus == 1 ? '已赞' : '赞'}">赞</b>(<i th:text="${rvo.likeCount}">1</i>)-->
+												<b>赞</b><i>1</i>
 											</a>
 										</li>
 										<li class="d-inline ml-2">|</li>
