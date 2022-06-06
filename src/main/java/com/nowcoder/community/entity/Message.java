@@ -3,6 +3,7 @@ package com.nowcoder.community.entity;
 import java.util.Date;
 
 public class Message {
+    private int id;
     private int fromId;
     private int toId;
     private String conversationId;
@@ -13,13 +14,22 @@ public class Message {
     @Override
     public String toString() {
         return "Message{" +
-                "fromId=" + fromId +
+                "id=" + id +
+                ", fromId=" + fromId +
                 ", toId=" + toId +
-                ", conversationId=" + conversationId +
+                ", conversationId='" + conversationId + '\'' +
                 ", content='" + content + '\'' +
                 ", status=" + status +
                 ", createTime=" + createTime +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getFromId() {

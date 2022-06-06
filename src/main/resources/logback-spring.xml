@@ -197,7 +197,7 @@
         可以包含零个或多个元素，标识这个appender将会添加到这个logger。
     -->
 
-    <logger name="com.nowcoder.community" level="debug"/>
+    <logger name="com.nowcoder.community" level="warn"/>
 
     <root level="info">-->
         <appender-ref ref="CONSOLE" />
