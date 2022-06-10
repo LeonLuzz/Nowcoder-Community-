@@ -18,7 +18,7 @@ function follow() {
 				}
 			}
 		);
-		$(btn).text("已关注").removeClass("btn-info").addClass("btn-secondary");
+		// $(btn).text("已关注").removeClass("btn-info").addClass("btn-secondary");
 	} else {
 		// 取消关注
 		$.post(
@@ -33,6 +33,6 @@ function follow() {
 				}
 			}
 		);
-		$(btn).text("关注TA").removeClass("btn-secondary").addClass("btn-info");
+		// $(btn).text("关注TA").removeClass("btn-secondary").addClass("btn-info");
 	}
 }

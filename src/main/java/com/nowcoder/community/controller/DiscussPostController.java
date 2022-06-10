@@ -96,7 +96,8 @@ public class DiscussPostController implements CommunityConstant {
                 // 评论
                 commentVo.put("comment", comment);
                 // 作者
-                commentVo.put("user", userService.findUserById(post.getUserId()));
+                // DEBUG:评论作者显示不正确，将post.getUserId()改为comment.getUserId()
+                commentVo.put("user", userService.findUserById(comment.getUserId()));
 
                 // 点赞
                 likeCount = likeService.findEntityLikeCount(ENTITY_TYPE_COMMENT, comment.getId());
@@ -139,7 +140,7 @@ public class DiscussPostController implements CommunityConstant {
                 commentVo.put("replies", replyVoList);
 
                 // 回复数量
-                int replyCount = commentService.finCommentCount(ENTITY_TYPE_COMMENT, comment.getId());
+                int replyCount = commentService.findCommentCount(ENTITY_TYPE_COMMENT, comment.getId());
                 commentVo.put("replyCount", replyCount);
 
                 commentVoList.add(commentVo);
