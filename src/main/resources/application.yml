@@ -1,0 +1,59 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /community
+
+spring:
+  application:
+    name: nowcoder-community
+# Thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+# Jdbc
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 5
+      idle-timeout: 30000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: leon
+    password: leon22486
+# MailProperties
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: longjianjiang@qq.com
+    protocol: smtps
+    properties.smtp.ssl.enable: true
+# RedisProperties
+  redis:
+    database: 11
+    host: localhost
+    port: 6379
+# Mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.nowcoder.community.entity
+  configuration:
+    use-generated-keys: true
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+# Logger
+logging:
+  level:
+    com:
+      nowcoder:
+        community: debug
+logging.file.name: D:/IDEA/Project/Logger/NowcoderCommunity.log
+# Community
+community:
+  path:
+    domain: http://localhost:8081
+    upload: D:/IDEA/Project/Logger/Profile_Picture
