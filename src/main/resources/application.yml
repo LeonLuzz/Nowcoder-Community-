@@ -37,6 +37,13 @@ spring:
     database: 11
     host: localhost
     port: 6379
+# KafkaProperties
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: test-consumer-group
+      enable-auto-commit: true
+      auto-commit-interval: 30000
 # Mybatis
 mybatis:
   mapper-locations: classpath:mapper/*.xml
