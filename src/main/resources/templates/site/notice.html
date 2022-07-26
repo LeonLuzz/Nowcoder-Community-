@@ -21,7 +21,7 @@
 					<!-- 选项 -->
 					<ul class="nav nav-tabs mb-3">
 						<li class="nav-item">
-							<a class="nav-link position-relative" th:href="@{/letter/list}">朋友私信<span class="badge badge-danger" th:text="${letterUnreadCount}" th:if="${letterUnreadCount != 0}">3</span></a>
+							<a class="nav-link position-relative" th:href="@{/letter/list}">私信<span class="badge badge-danger" th:text="${letterUnreadCount}" th:if="${letterUnreadCount != 0}">3</span></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link position-relative active" th:href="@{/notice/list}">系统通知<span class="badge badge-danger" th:text="${noticeUnreadCount}" th:if="${noticeUnreadCount != 0}">27</span></a>
@@ -30,7 +30,7 @@
 				</div>
 				<!-- 通知列表 -->
 				<ul class="list-unstyled">
-					<li class="media pb-3 pt-3 mb-3 border-bottom position-relative" th:if="${commentNotice.message != null}">
+					<li class="media pb-3 pt-3 mb-3 border-bottom position-relative" th:if="${commentNotice != null}">
 						<span class="badge badge-danger" th:text="${commentNotice.unread != 0 ? commentNotice.unread : ''}">3</span>
 						<img src="http://static.nowcoder.com/images/head/reply.png" class="mr-4 user-header" alt="通知图标">
 						<div class="media-body">
@@ -46,7 +46,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="media pb-3 pt-3 mb-3 border-bottom position-relative" th:if="${likeNotice.message != null}">
+					<li class="media pb-3 pt-3 mb-3 border-bottom position-relative" th:if="${likeNotice != null}">
 						<span class="badge badge-danger" th:text="${likeNotice.unread != 0 ? likeNotice.unread : ''}">3</span>
 						<img src="http://static.nowcoder.com/images/head/like.png" class="mr-4 user-header" alt="通知图标">
 						<div class="media-body">
@@ -62,7 +62,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="media pb-3 pt-3 mb-3 border-bottom position-relative" th:if="${followNotice.message != null}">
+					<li class="media pb-3 pt-3 mb-3 border-bottom position-relative" th:if="${followNotice != null}">
 						<span class="badge badge-danger" th:text="${followNotice.unread != 0 ? followNotice.unread : ''}">3</span>
 						<img src="http://static.nowcoder.com/images/head/follow.png" class="mr-4 user-header" alt="通知图标">
 						<div class="media-body">

@@ -51,7 +51,7 @@ public class LikeController implements CommunityConstant {
         // 触发点赞事件
         if (likeStatus == 1){
             Event event = new Event()
-                    .setTopic(TOPIC_Like)
+                    .setTopic(TOPIC_LIKE)
                     .setUserId(hostHolder.getUser().getId())
                     .setEntityType(entityType)
                     .setEntityId(entityId)

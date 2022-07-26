@@ -25,7 +25,7 @@ public class EventConsumer implements CommunityConstant {
 
     private static final Logger logger = LoggerFactory.getLogger(EventConsumer.class);
 
-    @KafkaListener(topics = {TOPIC_COMMENT, TOPIC_FOLLOW, TOPIC_Like})
+    @KafkaListener(topics = {TOPIC_COMMENT, TOPIC_FOLLOW, TOPIC_LIKE})
     public void handleCommentMessage(ConsumerRecord record){
         if (record == null || record.value() == null) {
             logger.error("消息内容为空！");
