@@ -6,6 +6,7 @@ server:
 spring:
   application:
     name: nowcoder-community
+
 # Thymeleaf
   thymeleaf:
     prefix: classpath:/templates/
@@ -14,6 +15,7 @@ spring:
     servlet:
       content-type: text/html
     cache: false
+
 # Jdbc
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
@@ -25,6 +27,7 @@ spring:
     url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     username: leon
     password: leon22486
+
 # MailProperties
   mail:
     host: smtp.qq.com
@@ -32,11 +35,13 @@ spring:
     username: longjianjiang@qq.com
     protocol: smtps
     properties.smtp.ssl.enable: true
+
 # RedisProperties
   redis:
     database: 11
     host: localhost
     port: 6379
+
 # KafkaProperties
   kafka:
     bootstrap-servers: localhost:9092
@@ -44,6 +49,17 @@ spring:
       group-id: test-consumer-group
       enable-auto-commit: true
       auto-commit-interval: 30000
+
+# ElasticsearchProperties
+  elasticsearch:
+    uris: 127.0.0.1:9200
+    username: nowcoder
+# 虽然爆红,但此项测试时必须填上,否则无法注入repository
+  data:
+    elasticsearch:
+      cluster-name: nowcoder
+      cluster-nodes: 127.0.0.1:9300
+
 # Mybatis
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -52,6 +68,7 @@ mybatis:
     use-generated-keys: true
     map-underscore-to-camel-case: true
     call-setters-on-nulls: true
+
 # Logger
 logging:
   level:
@@ -59,6 +76,7 @@ logging:
       nowcoder:
         community: debug
 logging.file.name: D:/IDEA/Project/Logger/NowcoderCommunity.log
+
 # Community
 community:
   path:
