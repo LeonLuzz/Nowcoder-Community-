@@ -41,6 +41,7 @@ public class ElasticsearchService {
         discussPostRepository.deleteById(id);
     }
 
+    // SearchResult 为自定义Entity查询结果
     public SearchResult searchDiscussPost(String keyword, int current, int limit) throws IOException {
         SearchRequest searchRequest = new SearchRequest("discusspost");//discusspost是索引名，就是表名
         //高亮
