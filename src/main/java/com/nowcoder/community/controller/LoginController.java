@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -70,7 +71,7 @@ public class LoginController implements CommunityConstant {
            model.addAttribute("usernameMsg", map.get("usernameMsg"));
            model.addAttribute("passwordMsg", map.get("passwordMsg"));
            model.addAttribute("emailMsg", map.get("emailMsg"));
-           return "site/register";
+           return "/site/register";
        }
     }
 
@@ -88,7 +89,7 @@ public class LoginController implements CommunityConstant {
             model.addAttribute("msg", "激活失败，激活码不正确！");
             model.addAttribute("target", "/index");
         }
-        return "site/operate-result";
+        return "/site/operate-result";
     }
 
     @RequestMapping(path = "/kaptcha", method = RequestMethod.GET)
@@ -136,7 +137,7 @@ public class LoginController implements CommunityConstant {
 
         if (StringUtils.isBlank(kaptcha) || StringUtils.isBlank(code) || !kaptcha.equalsIgnoreCase(code)) {
             model.addAttribute("codeMsg", "验证码不正确！");
-            return "site/login";
+            return "/site/login";
         }
 
         // 检查账号，密码
@@ -151,13 +152,14 @@ public class LoginController implements CommunityConstant {
         } else {
             model.addAttribute("usernameMsg", map.get("usernameMsg"));
             model.addAttribute("passwordMsg", map.get("passwordMsg"));
-            return "site/login";
+            return "/site/login";
         }
     }
 
     @RequestMapping(path = "/logout", method = RequestMethod.GET)
     public String logout(@CookieValue("ticket") String ticket) {
         userService.logOut(ticket);
+        SecurityContextHolder.clearContext();
         return  "redirect:/login";  // 重定向默认GET请求
     }
 }

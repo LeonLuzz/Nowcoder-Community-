@@ -73,13 +73,13 @@ public class UserController implements CommunityConstant {
     public String uploadHeaderImage(MultipartFile headerImage, Model model) {
         if (null == headerImage) {
             model.addAttribute("error", "您还没有选择图片！");
-            return "site/setting";
+            return "/site/setting";
         }
         String fileName = headerImage.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf("."));
         if (StringUtils.isBlank(suffix)) {
             model.addAttribute("error", "文件格式错误！");
-            return "site/setting";
+            return "/site/setting";
         }
         // 生成随机文件名
         fileName = CommunityUtil.generateUUID() + suffix;
@@ -136,7 +136,7 @@ public class UserController implements CommunityConstant {
         } else {
             model.addAttribute("oldPasswordMsg", map.get("oldPasswordMsg"));
             model.addAttribute("newPasswordMsg", map.get("newPasswordMsg"));
-            return "site/setting";
+            return "/site/setting";
         }
     }
 
@@ -168,7 +168,7 @@ public class UserController implements CommunityConstant {
             hasFollowed = followService.hasFollowed(hostHolder.getUser().getId(), ENTITY_TYPE_USER, userId);
         }
         model.addAttribute("hasFollowed", hasFollowed);
-        return "site/profile";
+        return "/site/profile";
     }
 
     // 我的帖子
@@ -198,7 +198,7 @@ public class UserController implements CommunityConstant {
         }
         model.addAttribute("discussPosts", discussVOList);
 
-        return "site/my-post";
+        return "/site/my-post";
     }
 
     // 我的回复
@@ -228,6 +228,6 @@ public class UserController implements CommunityConstant {
         }
         model.addAttribute("comments", commentVOList);
 
-        return "site/my-reply";
+        return "/site/my-reply";
     }
 }
