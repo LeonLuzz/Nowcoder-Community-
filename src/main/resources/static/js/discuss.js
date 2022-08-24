@@ -1,4 +1,4 @@
-$(function () {
+ $(function () {
     $("#topBtn").click(setTop);
     $("#wonderfulBtn").click(setWonderful);
     $("#deleteBtn").click(setDelete);
