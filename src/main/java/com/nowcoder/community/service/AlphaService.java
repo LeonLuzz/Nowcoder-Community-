@@ -42,7 +42,7 @@ public class AlphaService {
         logger.debug("测试 execute 1");
     }
 
-   @Scheduled(initialDelay = 10000, fixedRate = 1000)
+   // @Scheduled(initialDelay = 10000, fixedRate = 1000)
    public void execute2() {
         logger.debug("execute2");
     }
