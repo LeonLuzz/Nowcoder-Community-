@@ -112,3 +112,9 @@ community:
   path:
     domain: http://localhost:8081
     upload: D:/IDEA/Project/Logger/Profile_Picture
+
+# caffeine本地缓存
+caffeine:
+  posts:
+    max-size: 15
+    expire-seconds: 180
